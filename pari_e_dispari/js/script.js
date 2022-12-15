@@ -7,3 +7,25 @@ Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 Dichiariamo chi ha vinto.
 
 ----------------------------------------------------------------------------------------*/
+
+//1. Select input from DOM
+
+const inputNumber = document.getElementById('number');
+
+//2. Select form from DOM
+
+const inputForm = document.querySelector('form');
+console.log(inputForm);
+
+//3. Select output from DOM
+
+const outputTarget = document.getElementById('target');
+
+//4. Add event listener
+
+inputForm.addEventListener('click', function(event){
+    
+    event.preventDefault();
+    
+
+});
