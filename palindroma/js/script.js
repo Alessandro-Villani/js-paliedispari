@@ -20,7 +20,7 @@ const outputTarget = document.getElementById('target');
 
 //4. Add event listener
 
-inputForm.addEventListener('click', function(event){
+inputForm.addEventListener('submit', function(event){
     
     event.preventDefault();
 
