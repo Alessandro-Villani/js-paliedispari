@@ -23,7 +23,7 @@ const outputTarget = document.getElementById('target');
 
 //4. Add event listener
 
-inputForm.addEventListener('click', function(event){
+inputForm.addEventListener('submit', function(event){
     
     event.preventDefault();
 
@@ -42,9 +42,12 @@ inputForm.addEventListener('click', function(event){
     }
     //4.4 If validation is ok
     else {
-        
+        //4.4.1 Generate random number between 1-5 for cpu
+        cpuNumber = getRandomNumber(1, 5);
+        console.log(cpuNumber);
     }
 
+    //5. Print in page
     outputTarget.innerText = message
 
 });

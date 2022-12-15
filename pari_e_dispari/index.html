@@ -17,6 +17,12 @@
             <h1 class="mb-5 text-center">GIOCHIAMO A PARI O DISPARI!</h1>
             <label for="number" class="mb-3 h6">Inserisci un numero da 1 a 5</label>
             <input type="number" id="number" class="w-25 mb-3 text-center" min="1" max="5" value="1" required>
+            <div>
+                <input type="radio" name="even-odd" id="even" value="even">
+                <label for="even">Pari</label> 
+                <input type="radio" name="even-odd" id="odd" value="odd">
+                <label for="odd">Dispari</label>
+            </div>
             <button id="btn-control" class="btn btn-success mb-3">Invia</button>
             <h6 id="target"></h2>
         </form>
