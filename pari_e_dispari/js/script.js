@@ -13,6 +13,7 @@ Dichiariamo chi ha vinto.
 const inputNumber = document.getElementById('number');
 const inputEvenOdd = document.querySelector('input[name="even-odd"]:checked');
 
+
 //2. Select form from DOM
 
 const inputForm = document.querySelector('form');
@@ -21,26 +22,31 @@ console.log(inputForm);
 //3. Select output from DOM
 
 const outputTarget = document.getElementById('target');
+const outputNumbers = document.getElementById('numbers-target');
 
 //4. Add event listener
 
 inputForm.addEventListener('submit', function(event){
     
     event.preventDefault();
+
+    //4.1 Reset output message
+    let message = ''
+    outputTarget.classList.remove('text-danger');
     
-    //4.1 Check if user selected even or odd
+    //4.2 Check if user selected even or odd
     const inputEvenOddValue = document.querySelector('input[name="even-odd"]:checked').value;
     console.log(inputEvenOddValue);
 
-    //4.2 Reset output message
-    let message = ''
-    outputTarget.classList.remove('text-danger');
-
     //4.3 Pick user number from DOM
-    userNumber = inputNumber.value;
+    userNumber = parseInt(inputNumber.value.trim());
     console.log(userNumber);
 
-    //4.4 Validation
+
+    //4.4 Storage variable
+    let sum = 0;
+
+    //4.5 Validation
     if (isNaN(userNumber) || userNumber < 1 || userNumber > 5){
         message = 'Devi inserire un numero compreso tra 1 e 5'
         outputTarget.classList.add('text-danger');
@@ -49,15 +55,26 @@ inputForm.addEventListener('submit', function(event){
         message = 'Devi scegliere pari o dispari';
         outputTarget.classList.add('text-danger');
     }
-    //4.5 If validation is ok
+    //4.6 If validation is ok
     else {
-        //4.5.1 Generate random number between 1-5 for cpu
+        //4.6.1 Generate random number between 1-5 for cpu
         cpuNumber = getRandomNumber(1, 5);
         console.log(cpuNumber);
+
+        //4.6.2 Sum user number and cpu number
+        sum = userNumber + cpuNumber;
+        console.log(sum);
+        
+        //4.6.3 Prepare message
+        message = 'Hai perso!'
+        if ((isEven(sum) && inputEvenOddValue === 'even') || (!isEven(sum) && inputEvenOddValue === 'odd')){
+            message = 'Hai vinto!';
+        } 
     }
 
     //5. Print in page
-    outputTarget.innerText = message
+    outputNumbers.innerText = `Il tuo numero è ${userNumber}, il mio numero è ${cpuNumber}, la somma è ${sum}.`;
+    outputTarget.innerText = message;
 
 });
 
