@@ -21,12 +21,32 @@ const outputTarget = document.getElementById('target');
 //4. Add event listener
 
 inputForm.addEventListener('click', function(event){
+    
     event.preventDefault();
 
-    //4.1 Get user word
-    userWord = inputWord.value;
+    //4.1 Reset output field
+    let message = '';
+    outputTarget.classList.remove('text-danger');
 
-    console.log(isPalindrome(userWord));
+    //4.2 Get user word
+    userWord = inputWord.value.trim();
+
+    //4.3 Validation
+    if (!userWord){
+        message = 'Il campo è vuoto'
+        outputTarget.classList.add('text-danger');
+    } 
+    //4.4 Prepare message
+    else{ 
+
+        message = 'La parola inserita non è palindroma';
+        if(isPalindrome(userWord)) message = 'la parola inserita è palindroma';
+        
+    }
+
+    //4.5 Print on page
+    outputTarget.innerText = message;
+
 
 
 })
