@@ -27,7 +27,25 @@ inputForm.addEventListener('click', function(event){
     
     event.preventDefault();
 
+    //4.1 Reset output message
+    let message = ''
+    outputTarget.classList.remove('text-danger');
 
+    //4.2 Pick user number from DOM
+    userNumber = inputNumber.value;
+    console.log(userNumber);
+
+    //4.3 Validation
+    if (isNaN(userNumber) || userNumber < 1 || userNumber > 5){
+        message = 'Devi inserire un numero compreso tra 1 e 5'
+        outputTarget.classList.add('text-danger');
+    }
+    //4.4 If validation is ok
+    else {
+        
+    }
+
+    outputTarget.innerText = message
 
 });
 
