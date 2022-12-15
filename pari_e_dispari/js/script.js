@@ -42,3 +42,13 @@ function getRandomNumber(min, max){
     return randomNumber;
 
 }
+
+//2. Function verifying if the number is even
+
+function isEven(number){
+    
+    const isEven = !(number % 2) ? true : false;
+
+    return isEven;
+
+}
