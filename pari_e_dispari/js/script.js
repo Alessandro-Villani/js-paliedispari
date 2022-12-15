@@ -26,6 +26,19 @@ const outputTarget = document.getElementById('target');
 inputForm.addEventListener('click', function(event){
     
     event.preventDefault();
-    
+
+
 
 });
+
+
+//# FUNCTIONS
+
+//1. Function generating Random Number
+function getRandomNumber(min, max){
+
+    const randomNumber = Math.floor(Math.random() * max - min + 1) + min;
+
+    return randomNumber;
+
+}
