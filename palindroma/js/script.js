@@ -61,7 +61,7 @@ function isPalindrome(word){
     //1. Reverse the input word
     let reversedWord = '';
 
-    for (i = word.length - 1; i >= 0; i--){
+    for (let i = word.length - 1; i >= 0; i--){
         reversedWord += word[i];
     }
 
